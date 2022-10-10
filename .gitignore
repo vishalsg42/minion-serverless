@@ -1,0 +1,15 @@
+**/node_modules
+**/dist
+**/.DS_Store
+
+*.js
+*.d.ts
+dist
+build
+
+**/*test-report.xml
+coverage
+
+cdk.out
+.idea
+.env

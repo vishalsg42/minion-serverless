@@ -1,0 +1,15 @@
+{
+    "resourcePrefix": "minion-app",
+    "projectPrefix": "minion-app",
+    "environments": {
+      "DEV": {},
+      "INT": {},
+      "PRE_PROD": {},
+      "PROD": {}
+    },
+    "apiThrottlingConfig": {
+      "rateLimit": 50,
+      "burstLimit": 100
+    }
+  }
+  
