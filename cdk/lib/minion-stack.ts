@@ -5,6 +5,7 @@ import * as apigateway from "aws-cdk-lib/aws-apigateway"
 import { NodejsFunction } from "aws-cdk-lib/aws-lambda-nodejs"
 import * as dynamodb from "aws-cdk-lib/aws-dynamodb"
 import * as cdk from "aws-cdk-lib"
+import { Runtime } from "aws-cdk-lib/aws-lambda"
 
 export interface MinionStackProps extends StackProps {
   environment: Environment
@@ -25,6 +26,7 @@ export class MinionStack extends Stack {
         memorySize: 256,
         timeout: Duration.seconds(30),
         environment: {},
+        runtime: Runtime.NODEJS_16_X,
       }
     )
 
@@ -61,12 +63,9 @@ export class MinionStack extends Stack {
       }
     )
 
-    // minionTable.addLocalSecondaryIndex({
-    //   indexName: "emailIndex",
-    //   sortKey: { name: "email", type: dynamodb.AttributeType.STRING },
-    //   projectionType: dynamodb.ProjectionType.ALL,
-    // })
+    minionHandler.addEnvironment("TABLE_NAME", minionTable.tableName)
 
     minionTable.grant(minionHandler, "dynamodb:Query")
+    console.log("========Migrating========")
   }
 }

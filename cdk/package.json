@@ -11,7 +11,8 @@
     "cdk": "cdk",
     "bootstrap": "cdk bootstrap",
     "tsc": "tsc",
-    "deploy-local": "env LOCAL_BUILD=1 npm run cdk deploy MinionServerless --profile aslam"
+    "deploy-local": "env LOCAL_BUILD=1 npm run cdk deploy MinionServerless",
+    "destroy-local": "env LOCAL_BUILD=1 npm run cdk destroy MinionServerless"
   },
   "devDependencies": {
     "@types/jest": "^27.5.2",
